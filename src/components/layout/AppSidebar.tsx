@@ -114,7 +114,7 @@ export function AppSidebar() {
   const isExpanded = navItems.some((item) => currentPath === item.href)
   
   const getNavClassName = ({ isActive }: { isActive: boolean }) =>
-    isActive ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : ""
+    isActive ? "bg-primary text-primary-foreground font-semibold shadow-sm" : "hover:bg-accent hover:text-accent-foreground"
 
   return (
     <Sidebar className="border-r border-sidebar-border" collapsible="icon">
