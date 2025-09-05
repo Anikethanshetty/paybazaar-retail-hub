@@ -13,6 +13,7 @@ import {
   Users,
   BarChart3,
   Lock,
+  Phone,
 } from "lucide-react"
 import {
   Sidebar,
@@ -76,6 +77,11 @@ const retailerNavItems = [
     title: "Change Password",
     href: "/change-password",
     icon: Lock,
+  },
+  {
+    title: "Contact Us",
+    href: "/contact-us",
+    icon: Phone,
   },
 ]
 

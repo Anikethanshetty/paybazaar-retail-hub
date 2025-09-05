@@ -15,6 +15,7 @@ import Services from "./pages/Services";
 import UtilityPayments from "./pages/UtilityServices";
 import DigiKatha from "./pages/DigiKatha";
 import ChangePassword from "./pages/ChangePassword";
+import ContactUs from "./pages/ContactUs";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
               <Route path="/utility-payments" element={<UtilityPayments />} />
               <Route path="/digi-katha" element={<DigiKatha />} />
               <Route path="/change-password" element={<ChangePassword />} />
+              <Route path="/contact-us" element={<ContactUs />} />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
