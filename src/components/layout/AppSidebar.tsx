@@ -12,6 +12,7 @@ import {
   Settings,
   Users,
   BarChart3,
+  Lock,
 } from "lucide-react"
 import {
   Sidebar,
@@ -70,6 +71,11 @@ const retailerNavItems = [
     title: "Settings",
     href: "/settings",
     icon: Settings,
+  },
+  {
+    title: "Change Password",
+    href: "/change-password",
+    icon: Lock,
   },
 ]
 
