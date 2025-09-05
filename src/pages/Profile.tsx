@@ -4,7 +4,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ArrowLeft, Edit, CheckCircle, Mail, Phone, MapPin, Calendar, CreditCard, Building2 } from "lucide-react";
+import {
+  ArrowLeft,
+  Edit,
+  CheckCircle,
+  Mail,
+  Phone,
+  MapPin,
+  Calendar,
+  CreditCard,
+  Building2,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
@@ -26,7 +36,7 @@ export default function Profile() {
     city: "ALWAR",
     state: "RAJASTHAN",
     pinCode: "321605",
-    address: "KARANPURA, POST - TASAI, KATHUMAR, ALWAR(RAJ.)"
+    address: "KARANPURA, POST - TASAI, KATHUMAR, ALWAR(RAJ.)",
   };
 
   const infoSections = [
@@ -37,7 +47,7 @@ export default function Profile() {
         { label: "Present Shop", value: userInfo.presentShop, icon: Building2 },
         { label: "Mobile No", value: userInfo.mobileNo, icon: Phone },
         { label: "Email", value: userInfo.email, icon: Mail },
-      ]
+      ],
     },
     {
       title: "Personal Details",
@@ -46,16 +56,20 @@ export default function Profile() {
         { label: "Last Name", value: userInfo.lastName },
         { label: "Date of Birth", value: userInfo.dateOfBirth, icon: Calendar },
         { label: "Gender", value: userInfo.gender },
-      ]
+      ],
     },
     {
       title: "Verification Details",
       icon: CreditCard,
       items: [
-        { label: "Aadhaar Number", value: userInfo.aadhaarNumber, icon: CreditCard },
+        {
+          label: "Aadhaar Number",
+          value: userInfo.aadhaarNumber,
+          icon: CreditCard,
+        },
         { label: "PAN Number", value: userInfo.panNumber, icon: CreditCard },
         { label: "KYC Status", value: userInfo.kycStatus, isStatus: true },
-      ]
+      ],
     },
     {
       title: "Address Information",
@@ -65,8 +79,8 @@ export default function Profile() {
         { label: "State", value: userInfo.state },
         { label: "Pin Code", value: userInfo.pinCode },
         { label: "Address", value: userInfo.address, fullWidth: true },
-      ]
-    }
+      ],
+    },
   ];
 
   return (
@@ -87,7 +101,9 @@ export default function Profile() {
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
-            <h1 className="text-2xl font-bold text-foreground">Profile Overview</h1>
+            <h1 className="text-2xl font-bold text-foreground">
+              Profile Overview
+            </h1>
           </div>
 
           {/* Profile Hero Section */}
@@ -97,17 +113,24 @@ export default function Profile() {
                 <Avatar className="h-24 w-24 ring-4 ring-white/20">
                   <AvatarImage src={userInfo.avatar} alt={userInfo.name} />
                   <AvatarFallback className="text-2xl bg-white/10 text-white">
-                    {userInfo.name.split(' ').map(n => n[0]).join('')}
+                    {userInfo.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
                   </AvatarFallback>
                 </Avatar>
-                
+
                 <div className="flex-1 space-y-3">
                   <div>
-                    <h2 className="text-3xl font-bold text-white mb-2">{userInfo.name}</h2>
+                    <h2 className="text-3xl font-bold text-white mb-2">
+                      {userInfo.name}
+                    </h2>
                     <div className="flex items-center gap-3 flex-wrap">
-                      <span className="text-white/90 text-lg">{userInfo.userId}</span>
-                      <Badge 
-                        variant="secondary" 
+                      <span className="text-white/90 text-lg">
+                        {userInfo.userId}
+                      </span>
+                      <Badge
+                        variant="secondary"
                         className="bg-green-500/20 text-green-100 border-green-400/30 hover:bg-green-500/30"
                       >
                         <CheckCircle className="h-3 w-3 mr-1" />
@@ -115,9 +138,9 @@ export default function Profile() {
                       </Badge>
                     </div>
                   </div>
-                  
-                  <Button 
-                    variant="secondary" 
+
+                  <Button
+                    variant="secondary"
                     onClick={() => navigate("/profile/update")}
                     className="bg-white/10 hover:bg-white/20 text-white border-white/20"
                   >
@@ -132,7 +155,10 @@ export default function Profile() {
           {/* Information Sections */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {infoSections.map((section, sectionIndex) => (
-              <Card key={sectionIndex} className="hover:shadow-lg transition-shadow duration-200">
+              <Card
+                key={sectionIndex}
+                className="hover:shadow-lg transition-shadow duration-200"
+              >
                 <CardHeader className="pb-4">
                   <CardTitle className="flex items-center gap-2 text-lg">
                     <section.icon className="h-5 w-5 text-primary" />
@@ -141,9 +167,9 @@ export default function Profile() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {section.items.map((item, itemIndex) => (
-                    <div 
-                      key={itemIndex} 
-                      className={`${item.fullWidth ? 'col-span-full' : ''}`}
+                    <div
+                      key={itemIndex}
+                      className={`${item.fullWidth ? "col-span-full" : ""}`}
                     >
                       <div className="flex items-start gap-3">
                         {item.icon && (
@@ -154,8 +180,8 @@ export default function Profile() {
                             {item.label}
                           </p>
                           {item.isStatus ? (
-                            <Badge 
-                              variant="secondary" 
+                            <Badge
+                              variant="secondary"
                               className="bg-green-50 text-green-700 border-green-200 hover:bg-green-100"
                             >
                               <CheckCircle className="h-3 w-3 mr-1" />

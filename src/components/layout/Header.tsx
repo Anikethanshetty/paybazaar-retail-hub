@@ -1,7 +1,7 @@
-import { Moon, Sun, Bell, User } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useTheme } from "@/components/ui/theme-provider"
-import { SidebarTrigger } from "@/components/ui/sidebar"
+import { Moon, Sun, Bell, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useTheme } from "@/components/ui/theme-provider";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,10 +9,10 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 export function Header() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
 
   return (
     <header className="bg-card border-b border-border sticky top-0 z-50 h-16">
@@ -62,5 +62,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

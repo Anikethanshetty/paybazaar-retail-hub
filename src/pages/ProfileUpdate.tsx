@@ -8,10 +8,10 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { 
-  ArrowLeft, 
-  Camera, 
-  Save, 
+import {
+  ArrowLeft,
+  Camera,
+  Save,
   Upload,
   User,
   Mail,
@@ -20,7 +20,7 @@ import {
   CreditCard,
   Building2,
   Calendar,
-  CheckCircle
+  CheckCircle,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
@@ -28,7 +28,7 @@ import { useToast } from "@/hooks/use-toast";
 export default function ProfileUpdate() {
   const navigate = useNavigate();
   const { toast } = useToast();
-  
+
   const [formData, setFormData] = useState({
     name: "Lokesh Kumar",
     email: "LOKESHHCL@GMAIL.COM",
@@ -45,11 +45,13 @@ export default function ProfileUpdate() {
     shopName: "LOKESH TELICOM",
   });
 
-  const [profileImage, setProfileImage] = useState("/lovable-uploads/c0876286-fbc5-4e25-b7e8-cb81e868b3fe.png");
+  const [profileImage, setProfileImage] = useState(
+    "/lovable-uploads/c0876286-fbc5-4e25-b7e8-cb81e868b3fe.png"
+  );
   const [isUploading, setIsUploading] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -95,7 +97,9 @@ export default function ProfileUpdate() {
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
-            <h1 className="text-2xl font-bold text-foreground">Update Profile</h1>
+            <h1 className="text-2xl font-bold text-foreground">
+              Update Profile
+            </h1>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -113,27 +117,33 @@ export default function ProfileUpdate() {
                     <Avatar className="h-32 w-32 ring-4 ring-primary/20">
                       <AvatarImage src={profileImage} alt="Profile" />
                       <AvatarFallback className="text-2xl bg-primary/10 text-primary">
-                        {formData.name.split(' ').map(n => n[0]).join('')}
+                        {formData.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
                       </AvatarFallback>
                     </Avatar>
-                    
+
                     {isUploading && (
                       <div className="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center">
                         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
                       </div>
                     )}
                   </div>
-                  
+
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-lg font-semibold mb-2">Upload Profile Picture</h3>
+                    <h3 className="text-lg font-semibold mb-2">
+                      Upload Profile Picture
+                    </h3>
                     <p className="text-muted-foreground mb-4">
-                      Choose a photo that represents you well. JPG, PNG files up to 5MB.
+                      Choose a photo that represents you well. JPG, PNG files up
+                      to 5MB.
                     </p>
-                    
+
                     <div className="flex gap-3 flex-wrap justify-center md:justify-start">
-                      <Button 
-                        type="button" 
-                        variant="outline" 
+                      <Button
+                        type="button"
+                        variant="outline"
                         className="relative overflow-hidden"
                         disabled={isUploading}
                       >
@@ -147,10 +157,10 @@ export default function ProfileUpdate() {
                           disabled={isUploading}
                         />
                       </Button>
-                      
-                      <Button 
-                        type="button" 
-                        variant="ghost" 
+
+                      <Button
+                        type="button"
+                        variant="ghost"
                         onClick={() => setProfileImage("")}
                         disabled={isUploading}
                       >
@@ -181,35 +191,41 @@ export default function ProfileUpdate() {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="lastName">Last Name *</Label>
                   <Input
                     id="lastName"
                     value={formData.lastName}
-                    onChange={(e) => handleInputChange("lastName", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("lastName", e.target.value)
+                    }
                     className="mt-1"
                     required
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="gender">Gender</Label>
                   <Input
                     id="gender"
                     value={formData.gender}
-                    onChange={(e) => handleInputChange("gender", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("gender", e.target.value)
+                    }
                     className="mt-1"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="dateOfBirth">Date of Birth</Label>
                   <Input
                     id="dateOfBirth"
                     type="date"
                     value={formData.dateOfBirth}
-                    onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("dateOfBirth", e.target.value)
+                    }
                     className="mt-1"
                   />
                 </div>
@@ -236,24 +252,28 @@ export default function ProfileUpdate() {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="mobile">Mobile Number *</Label>
                   <Input
                     id="mobile"
                     value={formData.mobile}
-                    onChange={(e) => handleInputChange("mobile", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("mobile", e.target.value)
+                    }
                     className="mt-1"
                     required
                   />
                 </div>
-                
+
                 <div className="md:col-span-2">
                   <Label htmlFor="shopName">Shop/Business Name</Label>
                   <Input
                     id="shopName"
                     value={formData.shopName}
-                    onChange={(e) => handleInputChange("shopName", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("shopName", e.target.value)
+                    }
                     className="mt-1"
                   />
                 </div>
@@ -274,42 +294,50 @@ export default function ProfileUpdate() {
                   <Textarea
                     id="address"
                     value={formData.address}
-                    onChange={(e) => handleInputChange("address", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("address", e.target.value)
+                    }
                     className="mt-1"
                     rows={3}
                     required
                   />
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
                     <Label htmlFor="city">City *</Label>
                     <Input
                       id="city"
                       value={formData.city}
-                      onChange={(e) => handleInputChange("city", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("city", e.target.value)
+                      }
                       className="mt-1"
                       required
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="state">State *</Label>
                     <Input
                       id="state"
                       value={formData.state}
-                      onChange={(e) => handleInputChange("state", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("state", e.target.value)
+                      }
                       className="mt-1"
                       required
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="pinCode">Pin Code *</Label>
                     <Input
                       id="pinCode"
                       value={formData.pinCode}
-                      onChange={(e) => handleInputChange("pinCode", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("pinCode", e.target.value)
+                      }
                       className="mt-1"
                       required
                     />
@@ -324,7 +352,10 @@ export default function ProfileUpdate() {
                 <CardTitle className="flex items-center gap-2">
                   <CreditCard className="h-5 w-5" />
                   Verification Documents
-                  <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
+                  <Badge
+                    variant="secondary"
+                    className="bg-green-50 text-green-700 border-green-200"
+                  >
                     <CheckCircle className="h-3 w-3 mr-1" />
                     Verified
                   </Badge>
@@ -336,7 +367,9 @@ export default function ProfileUpdate() {
                   <Input
                     id="panNumber"
                     value={formData.panNumber}
-                    onChange={(e) => handleInputChange("panNumber", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("panNumber", e.target.value)
+                    }
                     className="mt-1"
                     disabled
                   />
@@ -344,13 +377,15 @@ export default function ProfileUpdate() {
                     Contact support to update verified documents
                   </p>
                 </div>
-                
+
                 <div>
                   <Label htmlFor="aadhaarNumber">Aadhaar Number</Label>
                   <Input
                     id="aadhaarNumber"
                     value={formData.aadhaarNumber}
-                    onChange={(e) => handleInputChange("aadhaarNumber", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("aadhaarNumber", e.target.value)
+                    }
                     className="mt-1"
                     disabled
                   />
@@ -363,17 +398,17 @@ export default function ProfileUpdate() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-end">
-              <Button 
-                type="button" 
-                variant="outline" 
+              <Button
+                type="button"
+                variant="outline"
                 onClick={() => navigate("/profile")}
                 className="sm:w-auto"
               >
                 Cancel
               </Button>
-              
-              <Button 
-                type="submit" 
+
+              <Button
+                type="submit"
                 className="sm:w-auto"
                 disabled={isUploading}
               >

@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { NavLink, useLocation } from "react-router-dom"
+import { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
   CreditCard,
@@ -12,7 +12,7 @@ import {
   Settings,
   Users,
   BarChart3,
-} from "lucide-react"
+} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -23,7 +23,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 const retailerNavItems = [
   {
@@ -71,7 +71,7 @@ const retailerNavItems = [
     href: "/settings",
     icon: Settings,
   },
-]
+];
 
 const adminNavItems = [
   {
@@ -99,22 +99,24 @@ const adminNavItems = [
     href: "/admin/reports",
     icon: Receipt,
   },
-]
+];
 
 export function AppSidebar() {
-  const [userRole] = useState<"retailer" | "admin">("retailer") // This will come from auth context
-  const { state } = useSidebar()
-  const location = useLocation()
-  const currentPath = location.pathname
-  
-  const navItems = userRole === "admin" ? adminNavItems : retailerNavItems
-  const isCollapsed = state === "collapsed"
-  
+  const [userRole] = useState<"retailer" | "admin">("retailer"); // This will come from auth context
+  const { state } = useSidebar();
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const navItems = userRole === "admin" ? adminNavItems : retailerNavItems;
+  const isCollapsed = state === "collapsed";
+
   // Check if any route in the current group is active to keep group expanded
-  const isExpanded = navItems.some((item) => currentPath === item.href)
-  
+  const isExpanded = navItems.some((item) => currentPath === item.href);
+
   const getNavClassName = ({ isActive }: { isActive: boolean }) =>
-    isActive ? "bg-primary text-primary-foreground font-semibold shadow-sm" : "hover:bg-accent hover:text-accent-foreground"
+    isActive
+      ? "bg-primary text-primary-foreground font-semibold shadow-sm"
+      : "hover:bg-accent hover:text-accent-foreground";
   return (
     <Sidebar className="border-r border-sidebar-border" collapsible="icon">
       <SidebarContent>
@@ -122,9 +124,9 @@ export function AppSidebar() {
         <SidebarGroup>
           <div className="flex h-16 items-center px-4 border-b border-sidebar-border">
             <div className="flex items-center gap-3">
-              <img 
-                src="/paybazaar-logo.png" 
-                alt="PayBazaar" 
+              <img
+                src="/paybazaar-logo.png"
+                alt="PayBazaar"
                 className="h-8 w-8 shrink-0"
               />
               {!isCollapsed && (
@@ -181,9 +183,8 @@ export function AppSidebar() {
         )}
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }
-
 
 // import { useState } from 'react';
 // import '@mantine/core/styles.css';

@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   CreditCard,
@@ -14,13 +14,13 @@ import {
   BarChart3,
   ChevronLeft,
   ChevronRight,
-} from "lucide-react"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface SidebarProps {
-  isOpen: boolean
-  onToggle: () => void
+  isOpen: boolean;
+  onToggle: () => void;
 }
 
 const retailerNavItems = [
@@ -69,7 +69,7 @@ const retailerNavItems = [
     href: "/settings",
     icon: Settings,
   },
-]
+];
 
 const adminNavItems = [
   {
@@ -97,12 +97,12 @@ const adminNavItems = [
     href: "/admin/reports",
     icon: Receipt,
   },
-]
+];
 
 export function Sidebar({ isOpen, onToggle }: SidebarProps) {
-  const [userRole] = useState<"retailer" | "admin">("retailer") // This will come from auth context
-  
-  const navItems = userRole === "admin" ? adminNavItems : retailerNavItems
+  const [userRole] = useState<"retailer" | "admin">("retailer"); // This will come from auth context
+
+  const navItems = userRole === "admin" ? adminNavItems : retailerNavItems;
 
   return (
     <>
@@ -127,9 +127,9 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
           <div className="flex h-16 items-center justify-between px-4 border-b border-sidebar-border">
             {isOpen && (
               <div className="flex items-center gap-3">
-                <img 
-                  src="/paybazaar-logo.png" 
-                  alt="PayBazaar" 
+                <img
+                  src="/paybazaar-logo.png"
+                  alt="PayBazaar"
                   className="h-8 w-8"
                 />
                 <span className="text-lg font-semibold text-sidebar-foreground">
@@ -161,7 +161,8 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
                   cn(
                     "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
                     "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-                    isActive && "bg-sidebar-primary text-sidebar-primary-foreground"
+                    isActive &&
+                      "bg-sidebar-primary text-sidebar-primary-foreground"
                   )
                 }
               >
@@ -194,5 +195,5 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
         </div>
       </aside>
     </>
-  )
+  );
 }

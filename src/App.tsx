@@ -16,6 +16,11 @@ import UtilityPayments from "./pages/UtilityServices";
 import AePS from "./pages/Aeps";
 import AepsKyc from "./pages/Aeps2";
 import DigiKatha from "./pages/Digikhata";
+import Dmt1 from "./pages/Dmt1";
+import Dmt2 from "./pages/Dmt2";
+import ChangePassword from "./pages/ChangePassword";
+import ContactUs from "./pages/ContactUs";
+import MyCommission from "./pages/Commission";
 
 const queryClient = new QueryClient();
 
@@ -39,8 +44,11 @@ const App = () => (
               <Route path="/aeps" element={<AePS />} />
               <Route path="/aeps2" element={<AepsKyc />} />
               <Route path="/digikatha" element={<DigiKatha />} />
-
-
+              <Route path="/dmt1" element={<Dmt1 />} />
+              <Route path="/dmt2" element={<Dmt2 />} />
+              <Route path="/change-password" element={<ChangePassword />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/commission" element={<MyCommission />} />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

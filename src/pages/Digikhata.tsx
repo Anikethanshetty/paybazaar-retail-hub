@@ -4,7 +4,13 @@ import { AppSidebar } from "@/components/layout/AppSidebar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowLeft, IdCard, KeyRound, Phone, Plus, Eye, Printer, Trash2 } from "lucide-react";
+import {
+  ArrowLeft,
+  IdCard,
+  KeyRound,
+  Phone,
+  Plus,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { AddBeneficiaryDialog } from "@/components/dialogs/AddBeneficiaryDialog";
 
@@ -75,14 +81,15 @@ export default function DigiKatha() {
                 <ArrowLeft className="h-5 w-5" />
               </Link>
               <h1 className="text-2xl font-bold">
-                {step === 5 ? "Remitter Information" : "Aadhaar Enabled Payment System (AePS)"}
+                {step === 5
+                  ? "Remitter Information"
+                  : "Aadhaar Enabled Payment System (AePS)"}
               </h1>
             </div>
             <p className="text-white/80 text-sm max-w-2xl leading-relaxed">
-              {step === 5 
+              {step === 5
                 ? "Manage your remitter information and beneficiaries for secure transactions."
-                : "Complete secure transactions using Aadhaar authentication and biometric verification."
-              }
+                : "Complete secure transactions using Aadhaar authentication and biometric verification."}
             </p>
           </div>
 
@@ -120,7 +127,10 @@ export default function DigiKatha() {
                 {step === 2 && (
                   <form onSubmit={handleMobileOtpSubmit} className="space-y-6">
                     <div className="space-y-2">
-                      <Label htmlFor="mobileOtp" className="text-sm font-semibold">
+                      <Label
+                        htmlFor="mobileOtp"
+                        className="text-sm font-semibold"
+                      >
                         Enter OTP sent to {mobile}
                       </Label>
                       <div className="relative">
@@ -147,7 +157,10 @@ export default function DigiKatha() {
                 {step === 3 && (
                   <form onSubmit={handleAadhaarSubmit} className="space-y-6">
                     <div className="space-y-2">
-                      <Label htmlFor="aadhaar" className="text-sm font-semibold">
+                      <Label
+                        htmlFor="aadhaar"
+                        className="text-sm font-semibold"
+                      >
                         Aadhaar Number *
                       </Label>
                       <div className="relative">
@@ -174,7 +187,10 @@ export default function DigiKatha() {
                 {step === 4 && (
                   <form onSubmit={handleAadhaarOtpSubmit} className="space-y-6">
                     <div className="space-y-2">
-                      <Label htmlFor="aadhaarOtp" className="text-sm font-semibold">
+                      <Label
+                        htmlFor="aadhaarOtp"
+                        className="text-sm font-semibold"
+                      >
                         Enter OTP sent for Aadhaar verification
                       </Label>
                       <div className="relative">
@@ -223,8 +239,12 @@ export default function DigiKatha() {
                         <Phone className="h-5 w-5 text-gray-600" />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">Mobile Number</p>
-                        <p className="font-semibold">{mobile || "9019542363"}</p>
+                        <p className="text-sm text-muted-foreground">
+                          Mobile Number
+                        </p>
+                        <p className="font-semibold">
+                          {mobile || "9019542363"}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -235,7 +255,9 @@ export default function DigiKatha() {
                         <span className="text-yellow-600 text-xl">💰</span>
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">Your Limit</p>
+                        <p className="text-sm text-muted-foreground">
+                          Your Limit
+                        </p>
                         <p className="font-semibold">Limit: ₹ 50000</p>
                       </div>
                     </div>
@@ -271,19 +293,38 @@ export default function DigiKatha() {
                     <table className="w-full">
                       <thead className="bg-slate-800 text-white">
                         <tr>
-                          <th className="px-4 py-3 text-left text-sm font-medium">BENEFICIARYNAME</th>
-                          <th className="px-4 py-3 text-left text-sm font-medium">BANKNAME</th>
-                          <th className="px-4 py-3 text-left text-sm font-medium">IFSC</th>
-                          <th className="px-4 py-3 text-left text-sm font-medium">ACCOUNTNUMBER</th>
-                          <th className="px-4 py-3 text-left text-sm font-medium">BENEMOBILE</th>
-                          <th className="px-4 py-3 text-left text-sm font-medium">PAY</th>
-                          <th className="px-4 py-3 text-left text-sm font-medium">VERIFY</th>
-                          <th className="px-4 py-3 text-left text-sm font-medium">DELETE</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium">
+                            BENEFICIARYNAME
+                          </th>
+                          <th className="px-4 py-3 text-left text-sm font-medium">
+                            BANKNAME
+                          </th>
+                          <th className="px-4 py-3 text-left text-sm font-medium">
+                            IFSC
+                          </th>
+                          <th className="px-4 py-3 text-left text-sm font-medium">
+                            ACCOUNTNUMBER
+                          </th>
+                          <th className="px-4 py-3 text-left text-sm font-medium">
+                            BENEMOBILE
+                          </th>
+                          <th className="px-4 py-3 text-left text-sm font-medium">
+                            PAY
+                          </th>
+                          <th className="px-4 py-3 text-left text-sm font-medium">
+                            VERIFY
+                          </th>
+                          <th className="px-4 py-3 text-left text-sm font-medium">
+                            DELETE
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td colSpan={8} className="px-4 py-8 text-center text-muted-foreground">
+                          <td
+                            colSpan={8}
+                            className="px-4 py-8 text-center text-muted-foreground"
+                          >
                             No data available in table
                           </td>
                         </tr>

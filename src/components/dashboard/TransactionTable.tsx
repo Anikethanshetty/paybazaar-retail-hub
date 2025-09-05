@@ -1,8 +1,8 @@
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -10,7 +10,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 import {
   Pagination,
   PaginationContent,
@@ -19,17 +19,17 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination"
-import { Search } from "lucide-react"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/pagination";
+import { Search } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface Transaction {
-  id: string
-  customerId: string
-  service: string
-  amount: string
-  status: "Success" | "Pending" | "Failed"
-  orderDate: string
+  id: string;
+  customerId: string;
+  service: string;
+  amount: string;
+  status: "Success" | "Pending" | "Failed";
+  orderDate: string;
 }
 
 // Mock data for recent transactions
@@ -114,59 +114,59 @@ const mockTransactions: Transaction[] = [
     status: "Success",
     orderDate: "2024-01-12",
   },
-]
+];
 
-const ITEMS_PER_PAGE = 5
+const ITEMS_PER_PAGE = 5;
 
 export function TransactionsTable() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [currentPage, setCurrentPage] = useState(1)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Filter transactions based on search term
   const filteredTransactions = mockTransactions.filter(
     (transaction) =>
       transaction.customerId.toLowerCase().includes(searchTerm.toLowerCase()) ||
       transaction.service.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  );
 
   // Calculate pagination
-  const totalPages = Math.ceil(filteredTransactions.length / ITEMS_PER_PAGE)
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
-  const endIndex = startIndex + ITEMS_PER_PAGE
-  const currentTransactions = filteredTransactions.slice(startIndex, endIndex)
+  const totalPages = Math.ceil(filteredTransactions.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentTransactions = filteredTransactions.slice(startIndex, endIndex);
 
   // Handle page change
   const handlePageChange = (page: number) => {
-    setCurrentPage(page)
-  }
+    setCurrentPage(page);
+  };
 
   // Reset page when search changes
   const handleSearchChange = (value: string) => {
-    setSearchTerm(value)
-    setCurrentPage(1)
-  }
+    setSearchTerm(value);
+    setCurrentPage(1);
+  };
 
   // Status badge styling
   const getStatusBadge = (status: Transaction["status"]) => {
     const statusConfig = {
       Success: "bg-success text-success-foreground",
-      Pending: "bg-warning text-warning-foreground", 
+      Pending: "bg-warning text-warning-foreground",
       Failed: "bg-destructive text-destructive-foreground",
-    }
+    };
 
     return (
-      <Badge className={cn("text-xs", statusConfig[status])}>
-        {status}
-      </Badge>
-    )
-  }
+      <Badge className={cn("text-xs", statusConfig[status])}>{status}</Badge>
+    );
+  };
 
   return (
     <Card className="finance-card">
       <CardHeader>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <CardTitle className="text-xl font-semibold">Recent Transactions</CardTitle>
-          
+          <CardTitle className="text-xl font-semibold">
+            Recent Transactions
+          </CardTitle>
+
           {/* Search Bar */}
           <div className="relative w-full sm:w-80">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
@@ -196,7 +196,7 @@ export function TransactionsTable() {
             <TableBody>
               {currentTransactions.length > 0 ? (
                 currentTransactions.map((transaction) => (
-                  <TableRow 
+                  <TableRow
                     key={transaction.id}
                     className="hover:bg-muted/30 transition-colors"
                   >
@@ -209,18 +209,21 @@ export function TransactionsTable() {
                     </TableCell>
                     <TableCell>{getStatusBadge(transaction.status)}</TableCell>
                     <TableCell className="text-muted-foreground">
-                      {new Date(transaction.orderDate).toLocaleDateString("en-IN", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
+                      {new Date(transaction.orderDate).toLocaleDateString(
+                        "en-IN",
+                        {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        }
+                      )}
                     </TableCell>
                   </TableRow>
                 ))
               ) : (
                 <TableRow>
-                  <TableCell 
-                    colSpan={5} 
+                  <TableCell
+                    colSpan={5}
                     className="text-center py-8 text-muted-foreground"
                   >
                     No transactions found
@@ -237,8 +240,10 @@ export function TransactionsTable() {
             <Pagination>
               <PaginationContent>
                 <PaginationItem>
-                  <PaginationPrevious 
-                    onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+                  <PaginationPrevious
+                    onClick={() =>
+                      handlePageChange(Math.max(1, currentPage - 1))
+                    }
                     className={cn(
                       currentPage === 1 && "pointer-events-none opacity-50"
                     )}
@@ -246,50 +251,58 @@ export function TransactionsTable() {
                 </PaginationItem>
 
                 {/* Page numbers */}
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                  // Show first page, last page, current page, and one page before/after current
-                  const shouldShow = 
-                    page === 1 || 
-                    page === totalPages || 
-                    Math.abs(page - currentPage) <= 1
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page) => {
+                    // Show first page, last page, current page, and one page before/after current
+                    const shouldShow =
+                      page === 1 ||
+                      page === totalPages ||
+                      Math.abs(page - currentPage) <= 1;
 
-                  if (!shouldShow) {
-                    // Show ellipsis if there's a gap
-                    if (page === 2 && currentPage > 4) {
-                      return (
-                        <PaginationItem key="ellipsis-start">
-                          <PaginationEllipsis />
-                        </PaginationItem>
-                      )
+                    if (!shouldShow) {
+                      // Show ellipsis if there's a gap
+                      if (page === 2 && currentPage > 4) {
+                        return (
+                          <PaginationItem key="ellipsis-start">
+                            <PaginationEllipsis />
+                          </PaginationItem>
+                        );
+                      }
+                      if (
+                        page === totalPages - 1 &&
+                        currentPage < totalPages - 3
+                      ) {
+                        return (
+                          <PaginationItem key="ellipsis-end">
+                            <PaginationEllipsis />
+                          </PaginationItem>
+                        );
+                      }
+                      return null;
                     }
-                    if (page === totalPages - 1 && currentPage < totalPages - 3) {
-                      return (
-                        <PaginationItem key="ellipsis-end">
-                          <PaginationEllipsis />
-                        </PaginationItem>
-                      )
-                    }
-                    return null
+
+                    return (
+                      <PaginationItem key={page}>
+                        <PaginationLink
+                          onClick={() => handlePageChange(page)}
+                          isActive={currentPage === page}
+                          className="cursor-pointer"
+                        >
+                          {page}
+                        </PaginationLink>
+                      </PaginationItem>
+                    );
                   }
-
-                  return (
-                    <PaginationItem key={page}>
-                      <PaginationLink
-                        onClick={() => handlePageChange(page)}
-                        isActive={currentPage === page}
-                        className="cursor-pointer"
-                      >
-                        {page}
-                      </PaginationLink>
-                    </PaginationItem>
-                  )
-                })}
+                )}
 
                 <PaginationItem>
-                  <PaginationNext 
-                    onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+                  <PaginationNext
+                    onClick={() =>
+                      handlePageChange(Math.min(totalPages, currentPage + 1))
+                    }
                     className={cn(
-                      currentPage === totalPages && "pointer-events-none opacity-50"
+                      currentPage === totalPages &&
+                        "pointer-events-none opacity-50"
                     )}
                   />
                 </PaginationItem>
@@ -301,7 +314,9 @@ export function TransactionsTable() {
         {/* Transaction Summary */}
         <div className="mt-4 flex justify-between text-sm text-muted-foreground">
           <span>
-            Showing {startIndex + 1} to {Math.min(endIndex, filteredTransactions.length)} of {filteredTransactions.length} transactions
+            Showing {startIndex + 1} to{" "}
+            {Math.min(endIndex, filteredTransactions.length)} of{" "}
+            {filteredTransactions.length} transactions
           </span>
           <span>
             Page {currentPage} of {totalPages}
@@ -309,5 +324,5 @@ export function TransactionsTable() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

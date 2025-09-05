@@ -1,15 +1,15 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { LucideIcon, TrendingUp, TrendingDown } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { LucideIcon, TrendingUp, TrendingDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface StatsCardProps {
-  title: string
-  value: string
+  title: string;
+  value: string;
   change: {
-    type: "positive" | "negative"
-  }
-  icon: LucideIcon
-  description?: string
+    type: "positive" | "negative";
+  };
+  icon: LucideIcon;
+  description?: string;
 }
 
 export function StatsCard({
@@ -19,7 +19,7 @@ export function StatsCard({
   icon: Icon,
   description,
 }: StatsCardProps) {
-  const TrendIcon = change.type === "positive" ? TrendingUp : TrendingDown
+  const TrendIcon = change.type === "positive" ? TrendingUp : TrendingDown;
 
   return (
     <Card className="finance-card">
@@ -32,8 +32,6 @@ export function StatsCard({
       <CardContent>
         <div className="text-2xl font-bold text-foreground">{value}</div>
         <div className="flex items-center gap-1 mt-1">
-         
-          
           {description && (
             <span className="text-xs text-muted-foreground ml-1">
               {description}
@@ -42,5 +40,5 @@ export function StatsCard({
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

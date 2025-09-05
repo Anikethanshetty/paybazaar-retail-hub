@@ -20,15 +20,18 @@ export default function AepsKyc() {
   return (
     <div className="min-h-screen bg-background flex w-full">
       <AppSidebar />
-      
+
       <div className="flex-1 flex flex-col min-w-0">
         <Header />
-        
+
         <main className="flex-1 p-6 space-y-6 overflow-auto">
           {/* Header Section with Gradient */}
           <div className="paybazaar-gradient rounded-lg p-6 text-white">
             <div className="flex items-center space-x-4 mb-4">
-              <Link to="/" className="text-white/90 hover:text-white transition-colors">
+              <Link
+                to="/"
+                className="text-white/90 hover:text-white transition-colors"
+              >
                 <ArrowLeft className="h-5 w-5" />
               </Link>
               <h1 className="text-2xl font-bold">AEPS Agent Daily KYC</h1>
@@ -44,7 +47,10 @@ export default function AepsKyc() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Mobile Number */}
                 <div className="space-y-2">
-                  <Label htmlFor="mobile" className="text-sm font-medium text-foreground">
+                  <Label
+                    htmlFor="mobile"
+                    className="text-sm font-medium text-foreground"
+                  >
                     Mobile Number *
                   </Label>
                   <Input
@@ -58,7 +64,10 @@ export default function AepsKyc() {
 
                 {/* Aadhaar Number */}
                 <div className="space-y-2">
-                  <Label htmlFor="aadhaar" className="text-sm font-medium text-foreground">
+                  <Label
+                    htmlFor="aadhaar"
+                    className="text-sm font-medium text-foreground"
+                  >
                     Aadhar Number *
                   </Label>
                   <Input
@@ -72,7 +81,7 @@ export default function AepsKyc() {
                 </div>
 
                 {/* Device Selection */}
-                          <div className="space-y-3">
+                <div className="space-y-3">
                   <Label className="text-sm font-semibold text-foreground">
                     Select Device *
                   </Label>
@@ -107,8 +116,8 @@ export default function AepsKyc() {
                 </div>
 
                 {/* Submit Button */}
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="w-full paybazaar-gradient text-white font-medium py-3 rounded-md hover:opacity-90 transition-opacity"
                   disabled={!selectedDevice}
                 >

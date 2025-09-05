@@ -4,7 +4,6 @@ import { ServiceCard } from "@/components/dashboard/ServiceCard";
 import { StatsCard } from "@/components/dashboard/StatsCard";
 import {
   ArrowLeftRight,
-  CreditCard,
   Receipt,
   Smartphone,
   Shield,
@@ -12,9 +11,9 @@ import {
   Landmark,
   Banknote,
   Building2,
-  DollarSign,
   Activity,
   Users,
+  IndianRupee,
 } from "lucide-react";
 import { TransactionsTable } from "@/components/dashboard/TransactionTable";
 
@@ -83,7 +82,7 @@ export default function Dashboard() {
       title: "Total Revenue",
       value: "₹2,45,680",
       change: { type: "positive" as const },
-      icon: DollarSign,
+      icon: IndianRupee,
     },
     {
       title: "Total Transactions",
@@ -107,44 +106,45 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-background flex w-full">
-    <AppSidebar />
-    
-    <div className="flex-1 flex flex-col min-w-0">
-      <Header />
-      
-      <main className="flex-1 p-6 space-y-6 overflow-auto">
-        {/* Welcome Section */}
-        <div className="paybazaar-gradient rounded-lg p-6 text-white">
-          <h1 className="text-2xl font-bold mb-2">Welcome back, John!</h1>
-          <p className="text-white/90">
-            Here's your business overview for today. You've processed ₹93,270 in transactions.
-          </p>
-        </div>
+      <AppSidebar />
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
-            <StatsCard key={index} {...stat} />
-          ))}
-        </div>
+      <div className="flex-1 flex flex-col min-w-0">
+        <Header />
 
-        {/* Services Grid */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Your Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                onManage={() => console.log(`Managing ${service.title}`)}
-              />
+        <main className="flex-1 p-6 space-y-6 overflow-auto">
+          {/* Welcome Section */}
+          <div className="paybazaar-gradient rounded-lg p-6 text-white">
+            <h1 className="text-2xl font-bold mb-2">Welcome back, John!</h1>
+            <p className="text-white/90">
+              Here's your business overview for today. You've processed ₹93,270
+              in transactions.
+            </p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <StatsCard key={index} {...stat} />
             ))}
           </div>
-        </div>
 
-        <TransactionsTable />
-      </main>
+          {/* Services Grid */}
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Your Services</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service, index) => (
+                <ServiceCard
+                  key={index}
+                  {...service}
+                  onManage={() => console.log(`Managing ${service.title}`)}
+                />
+              ))}
+            </div>
+          </div>
+
+          <TransactionsTable />
+        </main>
+      </div>
     </div>
-  </div>
   );
 }

@@ -1,19 +1,19 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { LucideIcon } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface ServiceCardProps {
-  title: string
-  icon: LucideIcon
-  status: "active" | "inactive" | "maintenance"
-  description: string
+  title: string;
+  icon: LucideIcon;
+  status: "active" | "inactive" | "maintenance";
+  description: string;
   stats: {
-    label: string
-    value: string
-  }[]
-  onManage?: () => void
+    label: string;
+    value: string;
+  }[];
+  onManage?: () => void;
 }
 
 export function ServiceCard({
@@ -37,7 +37,7 @@ export function ServiceCard({
       badge: "bg-warning text-warning-foreground",
       text: "Maintenance",
     },
-  }
+  };
 
   return (
     <Card className="finance-card group ">
@@ -49,13 +49,14 @@ export function ServiceCard({
             </div>
             <div>
               <CardTitle className="text-lg">{title}</CardTitle>
-              <p className="text-sm text-muted-foreground mt-1">{description}</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                {description}
+              </p>
             </div>
           </div>
-         
         </div>
       </CardHeader>
-      
+
       <CardContent className="pt-0">
         <div className="grid grid-cols-2 gap-4 mb-4">
           {stats.map((stat, index) => (
@@ -65,11 +66,11 @@ export function ServiceCard({
             </div>
           ))}
         </div>
-        
+
         {onManage && (
-          <Button 
-            variant="outline" 
-            size="sm" 
+          <Button
+            variant="outline"
+            size="sm"
             onClick={onManage}
             className="w-full hover:bg-primary hover:text-primary-foreground transition-colors"
           >
@@ -78,5 +79,5 @@ export function ServiceCard({
         )}
       </CardContent>
     </Card>
-  )
+  );
 }

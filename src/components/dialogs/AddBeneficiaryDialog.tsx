@@ -28,7 +28,10 @@ interface BeneficiaryFormData {
   beneficiaryName: string;
 }
 
-export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialogProps) {
+export function AddBeneficiaryDialog({
+  open,
+  onOpenChange,
+}: AddBeneficiaryDialogProps) {
   const [formData, setFormData] = useState<BeneficiaryFormData>({
     bank: "",
     ifsc: "",
@@ -58,11 +61,13 @@ export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialo
     if (formData.ifsc && !/^[A-Z]{4}0[A-Z0-9]{6}$/.test(formData.ifsc)) {
       newErrors.ifsc = "Invalid IFSC code format";
     }
-    if (!formData.accountNumber) newErrors.accountNumber = "Account number is required";
+    if (!formData.accountNumber)
+      newErrors.accountNumber = "Account number is required";
     if (formData.accountNumber && formData.accountNumber.length < 9) {
       newErrors.accountNumber = "Account number must be at least 9 digits";
     }
-    if (!formData.beneficiaryName) newErrors.beneficiaryName = "Beneficiary name is required";
+    if (!formData.beneficiaryName)
+      newErrors.beneficiaryName = "Beneficiary name is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -76,7 +81,7 @@ export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialo
       });
       return;
     }
-    
+
     // Simulate account verification
     setErrors({ ...errors, verify: "" });
     alert("Account verified successfully!");
@@ -84,11 +89,11 @@ export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialo
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     console.log("Beneficiary data:", formData);
-    
+
     // Reset form and close dialog
     setFormData({
       bank: "",
@@ -98,7 +103,7 @@ export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialo
     });
     setErrors({});
     onOpenChange(false);
-    
+
     alert("Beneficiary added successfully!");
   };
 
@@ -130,7 +135,9 @@ export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialo
             </Label>
             <Select
               value={formData.bank}
-              onValueChange={(value) => setFormData({ ...formData, bank: value })}
+              onValueChange={(value) =>
+                setFormData({ ...formData, bank: value })
+              }
             >
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="--Select Bank--" />
@@ -143,7 +150,9 @@ export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialo
                 ))}
               </SelectContent>
             </Select>
-            {errors.bank && <p className="text-red-500 text-xs">{errors.bank}</p>}
+            {errors.bank && (
+              <p className="text-red-500 text-xs">{errors.bank}</p>
+            )}
           </div>
 
           {/* IFSC and Account Number Row */}
@@ -156,12 +165,19 @@ export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialo
                 id="ifsc"
                 type="text"
                 value={formData.ifsc}
-                onChange={(e) => setFormData({ ...formData, ifsc: e.target.value.toUpperCase() })}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    ifsc: e.target.value.toUpperCase(),
+                  })
+                }
                 placeholder="Enter IFSC"
                 className="uppercase"
                 maxLength={11}
               />
-              {errors.ifsc && <p className="text-red-500 text-xs">{errors.ifsc}</p>}
+              {errors.ifsc && (
+                <p className="text-red-500 text-xs">{errors.ifsc}</p>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -173,7 +189,9 @@ export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialo
                   id="accountNumber"
                   type="text"
                   value={formData.accountNumber}
-                  onChange={(e) => setFormData({ ...formData, accountNumber: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, accountNumber: e.target.value })
+                  }
                   placeholder="Account Number"
                   className="flex-1"
                 />
@@ -185,8 +203,12 @@ export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialo
                   Verify A/C
                 </Button>
               </div>
-              {errors.accountNumber && <p className="text-red-500 text-xs">{errors.accountNumber}</p>}
-              {errors.verify && <p className="text-red-500 text-xs">{errors.verify}</p>}
+              {errors.accountNumber && (
+                <p className="text-red-500 text-xs">{errors.accountNumber}</p>
+              )}
+              {errors.verify && (
+                <p className="text-red-500 text-xs">{errors.verify}</p>
+              )}
             </div>
           </div>
 
@@ -199,10 +221,14 @@ export function AddBeneficiaryDialog({ open, onOpenChange }: AddBeneficiaryDialo
               id="beneficiaryName"
               type="text"
               value={formData.beneficiaryName}
-              onChange={(e) => setFormData({ ...formData, beneficiaryName: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, beneficiaryName: e.target.value })
+              }
               placeholder="Enter Beneficiary Name"
             />
-            {errors.beneficiaryName && <p className="text-red-500 text-xs">{errors.beneficiaryName}</p>}
+            {errors.beneficiaryName && (
+              <p className="text-red-500 text-xs">{errors.beneficiaryName}</p>
+            )}
           </div>
 
           {/* Action Buttons */}
