@@ -14,6 +14,7 @@ import {
   BarChart3,
   Lock,
   Phone,
+  TrendingUp,
 } from "lucide-react"
 import {
   Sidebar,
@@ -72,6 +73,11 @@ const retailerNavItems = [
     title: "Settings",
     href: "/settings",
     icon: Settings,
+  },
+  {
+    title: "My Commission",
+    href: "/my-commission",
+    icon: TrendingUp,
   },
   {
     title: "Change Password",
