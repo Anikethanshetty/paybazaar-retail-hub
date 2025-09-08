@@ -303,7 +303,7 @@ export default function Services() {
                         </div>
 
                         <div className="flex gap-2">
-                          <Button className="flex-1" size="sm" onClick={() => window.location.href = service.route}>
+                          <Button className="flex-1" size="sm" onClick={() => window.location.replace(`${service.route}`)}>
                             Use Service
                           </Button>
                           {/* <Button variant="outline" size="sm">
