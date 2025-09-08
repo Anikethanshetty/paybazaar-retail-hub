@@ -75,7 +75,7 @@ export default function DigiKatha() {
           <div className="paybazaar-gradient rounded-xl p-6 text-white shadow-md">
             <div className="flex items-center space-x-3 mb-2">
               <Link
-                to="/"
+                to="/dashboard"
                 className="text-white/90 hover:text-white transition-colors"
               >
                 <ArrowLeft className="h-5 w-5" />

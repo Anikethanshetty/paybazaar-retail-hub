@@ -12,6 +12,9 @@ import {
   Settings,
   Users,
   BarChart3,
+  Activity,
+  PersonStanding,
+  Key
 } from "lucide-react";
 import {
   Sidebar,
@@ -32,8 +35,8 @@ const retailerNavItems = [
     icon: LayoutDashboard,
   },
   {
-    title: "DMT",
-    href: "/dmt",
+    title: "Profile",
+    href: "/profile",
     icon: ArrowLeftRight,
   },
   {
@@ -71,6 +74,21 @@ const retailerNavItems = [
     href: "/settings",
     icon: Settings,
   },
+  {
+    title:"Commission",
+    href: "/commission",
+    icon: Activity,
+  },
+  {
+    title:"Contact Us",
+    href: "/contact-us",
+    icon: PersonStanding,
+  },
+  {
+    title:"Change Password",
+    href: "/change-password",
+    icon: Key,
+  }
 ];
 
 const adminNavItems = [

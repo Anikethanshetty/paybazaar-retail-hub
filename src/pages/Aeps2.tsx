@@ -29,7 +29,7 @@ export default function AepsKyc() {
           <div className="paybazaar-gradient rounded-lg p-6 text-white">
             <div className="flex items-center space-x-4 mb-4">
               <Link
-                to="/"
+                to="/dashboard"
                 className="text-white/90 hover:text-white transition-colors"
               >
                 <ArrowLeft className="h-5 w-5" />

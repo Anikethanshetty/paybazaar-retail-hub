@@ -34,6 +34,7 @@ export default function Services() {
       commission: "₹5-15 per transaction",
       gradient: "from-blue-500 to-blue-600",
       category: "Banking",
+      route:"/aeps"
     },
     {
       id: "aeps-2",
@@ -45,6 +46,8 @@ export default function Services() {
       commission: "₹8-20 per transaction",
       gradient: "from-indigo-500 to-indigo-600",
       category: "Banking",
+      route:"/aeps2"
+
     },
     {
       id: "utilities-bill",
@@ -56,6 +59,7 @@ export default function Services() {
       commission: "0.5% - 2% commission",
       gradient: "from-green-500 to-green-600",
       category: "Bills",
+      route:"/utility-payments"
     },
     {
       id: "digi-khata-ppi",
@@ -67,6 +71,7 @@ export default function Services() {
       commission: "₹2-10 per transaction",
       gradient: "from-purple-500 to-purple-600",
       category: "Wallet",
+      route:"/digikatha"
     },
     {
       id: "dmt-1",
@@ -78,6 +83,7 @@ export default function Services() {
       commission: "₹10-25 per transaction",
       gradient: "from-orange-500 to-orange-600",
       category: "Transfer",
+      route:"/dmt1"
     },
     {
       id: "dmt-2",
@@ -89,6 +95,7 @@ export default function Services() {
       commission: "₹15-30 per transaction",
       gradient: "from-red-500 to-red-600",
       category: "Transfer",
+      route:"/dmt2"
     },
     {
       id: "payout",
@@ -296,12 +303,12 @@ export default function Services() {
                         </div>
 
                         <div className="flex gap-2">
-                          <Button className="flex-1" size="sm">
+                          <Button className="flex-1" size="sm" onClick={() => window.location.href = service.route}>
                             Use Service
                           </Button>
-                          <Button variant="outline" size="sm">
+                          {/* <Button variant="outline" size="sm">
                             Details
-                          </Button>
+                          </Button> */}
                         </div>
                       </div>
                     </CardContent>
