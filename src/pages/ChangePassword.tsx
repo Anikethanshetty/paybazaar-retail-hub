@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Lock, Key, Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
 export default function ChangePassword() {
@@ -29,6 +29,7 @@ export default function ChangePassword() {
   });
 
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = (field: keyof typeof showPassword) => {
     setShowPassword((prev) => ({
@@ -95,12 +96,14 @@ export default function ChangePassword() {
           {/* Header Section */}
           <div className="paybazaar-gradient rounded-xl p-6 text-white shadow-md">
             <div className="flex items-center space-x-3 mb-2">
-              <Link
-                to="/dashboard"
-                className="text-white/90 hover:text-white transition-colors"
+            <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigate(-1)}
+                className="text-white hover:bg-slate-700"
               >
                 <ArrowLeft className="h-5 w-5" />
-              </Link>
+              </Button>
               <h1 className="text-2xl font-bold">Change Password</h1>
             </div>
             <p className="text-white/80 text-sm max-w-2xl leading-relaxed">

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+
 import {
   Wifi,
   Users,
@@ -355,17 +356,17 @@ export default function UtilityPayments() {
               </h1>
             </div>
 
-            {/* Modern Search Bar */}
-            <div className="relative max-w-lg">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-              <Input
-                placeholder="Search utilities..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-12 h-12 bg-background/95 backdrop-blur-sm border-border text-foreground placeholder:text-muted-foreground rounded-lg shadow-sm"
-              />
-            </div>
-          </div>
+                    {/* Modern Search Bar */}
+                  <div className="relative max-w-lg">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5 z-10" />
+          <Input
+            placeholder="Search utilities..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="pl-12 h-12 bg-background/95 backdrop-blur-sm border border-border text-foreground placeholder:text-muted-foreground rounded-lg shadow-sm"
+          />
+        </div>
+         </div>
         </div>
 
         <div className="max-w-7xl mx-auto p-6">
@@ -443,27 +444,27 @@ export default function UtilityPayments() {
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-muted border-b border-border">
+                  <thead className="bg-muted border-b border-border ">
                     <tr>
-                      <th className="text-left p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
+                      <th className="text-center p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
                         Ref ID
                       </th>
-                      <th className="text-left p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
+                      <th className="text-center p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
                         Category
                       </th>
-                      <th className="text-left p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
+                      <th className="text-center p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
                         Biller Name
                       </th>
-                      <th className="text-left p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
+                      <th className="text-center p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
                         Amount
                       </th>
-                      <th className="text-left p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
+                      <th className="text-center p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
                         Customer
                       </th>
-                      <th className="text-left p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
+                      <th className="text-center p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
                         Status
                       </th>
-                      <th className="text-left p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
+                      <th className="text-center p-4 font-semibold text-sm text-muted-foreground uppercase tracking-wider">
                         Actions
                       </th>
                     </tr>
@@ -476,35 +477,37 @@ export default function UtilityPayments() {
                           index % 2 === 0 ? "bg-background" : "bg-muted/20"
                         }`}
                       >
-                        <td className="p-4 text-sm font-mono text-foreground">
+                        <td className="p-4 text-center text-sm font-mono text-foreground">
                           {transaction.refId}
                         </td>
-                        <td className="p-4 text-sm text-foreground">
+                        <td className="p-4 text-sm text-center text-foreground">
                           {transaction.category}
                         </td>
-                        <td className="p-4 text-sm text-foreground">
+                        <td className="p-4 text-sm text-center text-foreground">
                           {transaction.billerName}
                         </td>
-                        <td className="p-4 text-sm font-semibold text-foreground">
+                        <td className="p-4 text-sm  text-center font-semibold text-foreground">
                           {transaction.amount}
                         </td>
-                        <td className="p-4 text-sm text-foreground">
+                        <td className="p-4 text-sm text-center text-foreground">
                           {transaction.customerName}
                         </td>
-                        <td className="p-4">
-                          <Badge
-                            variant={
-                              transaction.status === "Success"
-                                ? "default"
-                                : transaction.status === "Pending"
-                                ? "secondary"
-                                : "destructive"
-                            }
-                            className="text-xs rounded-full font-medium"
-                          >
-                            {transaction.status}
-                          </Badge>
-                        </td>
+                      <td className="p-4">
+                        <Badge
+                          className={`w-24 h-7 flex text-center items-center justify-center text-xs rounded-full font-medium ${
+                            transaction.status === "Success"
+                              ? "bg-green-100 text-green-700 hover:bg-green-100"
+                              : transaction.status === "Pending"
+                              ? "bg-amber-100 text-amber-700 hover:bg-amber-100" 
+                              : "bg-red-100 text-red-700 hover:bg-red-100"
+                          }`}
+                        >
+                          {transaction.status}
+                        </Badge>
+                      </td>
+
+
+
                         <td className="p-4">
                           <div className="flex gap-2">
                             <Button

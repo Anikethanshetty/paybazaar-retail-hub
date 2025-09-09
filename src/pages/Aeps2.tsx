@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ArrowLeft, Smartphone, CreditCard } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AepsKyc() {
   const [selectedDevice, setSelectedDevice] = useState("");
@@ -16,6 +16,8 @@ export default function AepsKyc() {
     // Handle form submission
     console.log("KYC form submitted");
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background flex w-full">
@@ -28,12 +30,14 @@ export default function AepsKyc() {
           {/* Header Section with Gradient */}
           <div className="paybazaar-gradient rounded-lg p-6 text-white">
             <div className="flex items-center space-x-4 mb-4">
-              <Link
-                to="/dashboard"
-                className="text-white/90 hover:text-white transition-colors"
+            <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigate(-1)}
+                className="text-white hover:bg-slate-700"
               >
                 <ArrowLeft className="h-5 w-5" />
-              </Link>
+              </Button>
               <h1 className="text-2xl font-bold">AEPS Agent Daily KYC</h1>
             </div>
             <p className="text-white/90">

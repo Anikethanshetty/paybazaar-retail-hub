@@ -4,14 +4,8 @@ import { AppSidebar } from "@/components/layout/AppSidebar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  ArrowLeft,
-  IdCard,
-  KeyRound,
-  Phone,
-  Plus,
-} from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowLeft, IdCard, KeyRound, Phone, Plus } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { AddBeneficiaryDialog } from "@/components/dialogs/AddBeneficiaryDialog";
 
 export default function DigiKatha() {
@@ -21,6 +15,7 @@ export default function DigiKatha() {
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
   const [showAddBeneficiary, setShowAddBeneficiary] = useState(false);
+  const navigate = useNavigate();
 
   const handleMobileSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,12 +69,14 @@ export default function DigiKatha() {
           {/* Header Section */}
           <div className="paybazaar-gradient rounded-xl p-6 text-white shadow-md">
             <div className="flex items-center space-x-3 mb-2">
-              <Link
-                to="/dashboard"
-                className="text-white/90 hover:text-white transition-colors"
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigate(-1)}
+                className="text-white hover:bg-slate-700"
               >
                 <ArrowLeft className="h-5 w-5" />
-              </Link>
+              </Button>
               <h1 className="text-2xl font-bold">
                 {step === 5
                   ? "Remitter Information"

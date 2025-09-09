@@ -20,7 +20,7 @@ import {
   IdCard,
   Banknote,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AePS() {
   const [transactionType, setTransactionType] = useState("");
@@ -35,6 +35,8 @@ export default function AePS() {
     console.log("Form submitted");
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background flex w-full">
       <AppSidebar />
@@ -46,12 +48,14 @@ export default function AePS() {
           {/* Header Section with Gradient (Reduced size) */}
           <div className="paybazaar-gradient rounded-xl p-6 text-white shadow-md">
             <div className="flex items-center space-x-3 mb-2">
-              <Link
-                to="/dashboard"
-                className="text-white/90 hover:text-white transition-colors"
+            <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigate(-1)}
+                className="text-white hover:bg-slate-700"
               >
                 <ArrowLeft className="h-5 w-5" />
-              </Link>
+              </Button>
               <h1 className="text-2xl font-bold">
                 Aadhaar Enabled Payment System (AePS)
               </h1>

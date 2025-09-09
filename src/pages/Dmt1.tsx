@@ -6,9 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ArrowLeft, Smartphone, CreditCard } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AepsKyc() {
+  const navigate = useNavigate();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
@@ -26,12 +28,14 @@ export default function AepsKyc() {
           {/* Header Section with Gradient */}
           <div className="paybazaar-gradient rounded-lg p-6 text-white">
             <div className="flex items-center space-x-4 mb-4">
-              <Link
-                to="/"
-                className="text-white/90 hover:text-white transition-colors"
+            <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigate(-1)}
+                className="text-white hover:bg-slate-700"
               >
                 <ArrowLeft className="h-5 w-5" />
-              </Link>
+              </Button>
               <h1 className="text-2xl font-bold">Remitter Login</h1>
             </div>
           </div>

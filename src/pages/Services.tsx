@@ -1,22 +1,16 @@
 import { Header } from "@/components/layout/Header";
 import { AppSidebar } from "@/components/layout/AppSidebar";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   ArrowLeftRight,
   CreditCard,
-  Receipt,
+  FileText,     // ✅ Utilities Bill
+  Fingerprint,  // ✅ AEPS
   Smartphone,
-  Shield,
   Wallet,
-  Building2,
-  Banknote,
-  ArrowLeft,
   Search,
-  Settings,
-  Activity,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -28,38 +22,25 @@ export default function Services() {
       id: "aeps",
       title: "AEPS",
       subtitle: "Aadhaar Enabled Payment",
-      icon: Shield,
+      icon: Fingerprint,
       status: "active" as const,
       description: "Withdraw cash using Aadhaar authentication",
       commission: "₹5-15 per transaction",
-      gradient: "from-blue-500 to-blue-600",
+      color: "bg-gradient-to-r from-blue-600 to-blue-400", // Corporate Blue
       category: "Banking",
-      route:"/aeps"
-    },
-    {
-      id: "aeps-2",
-      title: "AEPS-2",
-      subtitle: "Enhanced AEPS Services",
-      icon: Shield,
-      status: "active" as const,
-      description: "Advanced Aadhaar payment services",
-      commission: "₹8-20 per transaction",
-      gradient: "from-indigo-500 to-indigo-600",
-      category: "Banking",
-      route:"/aeps2"
-
+      route: "/aeps",
     },
     {
       id: "utilities-bill",
       title: "UTILITIES BILL",
       subtitle: "Bill Payment Services",
-      icon: Receipt,
+      icon: FileText,
       status: "active" as const,
       description: "Pay electricity, water, gas bills",
       commission: "0.5% - 2% commission",
-      gradient: "from-green-500 to-green-600",
+      color: "bg-gradient-to-r from-emerald-600 to-emerald-400", // Green
       category: "Bills",
-      route:"/utility-payments"
+      route: "/utility-payments",
     },
     {
       id: "digi-khata-ppi",
@@ -69,9 +50,9 @@ export default function Services() {
       status: "active" as const,
       description: "Prepaid payment instrument services",
       commission: "₹2-10 per transaction",
-      gradient: "from-purple-500 to-purple-600",
+      color: "bg-gradient-to-r from-cyan-600 to-cyan-400", // ✅ Changed to bright cyan
       category: "Wallet",
-      route:"/digikatha"
+      route: "/digikatha",
     },
     {
       id: "dmt-1",
@@ -81,43 +62,9 @@ export default function Services() {
       status: "active" as const,
       description: "Send money across India instantly",
       commission: "₹10-25 per transaction",
-      gradient: "from-orange-500 to-orange-600",
+      color: "bg-gradient-to-r from-indigo-600 to-indigo-400", // Indigo
       category: "Transfer",
-      route:"/dmt1"
-    },
-    {
-      id: "dmt-2",
-      title: "DMT-2",
-      subtitle: "Enhanced Money Transfer",
-      icon: ArrowLeftRight,
-      status: "active" as const,
-      description: "Advanced money transfer services",
-      commission: "₹15-30 per transaction",
-      gradient: "from-red-500 to-red-600",
-      category: "Transfer",
-      route:"/dmt2"
-    },
-    {
-      id: "payout",
-      title: "PAYOUT",
-      subtitle: "Business Payout",
-      icon: CreditCard,
-      status: "active" as const,
-      description: "Bulk payment solutions for businesses",
-      commission: "₹5-15 per transaction",
-      gradient: "from-emerald-500 to-emerald-600",
-      category: "Business",
-    },
-    {
-      id: "aeps-settlement",
-      title: "AEPS SETTLEMENT",
-      subtitle: "Settlement Services",
-      icon: Building2,
-      status: "active" as const,
-      description: "Settle AEPS transactions securely",
-      commission: "₹2-8 per settlement",
-      gradient: "from-cyan-500 to-cyan-600",
-      category: "Banking",
+      route: "/dmt1",
     },
     {
       id: "mobile-recharge",
@@ -127,7 +74,7 @@ export default function Services() {
       status: "active" as const,
       description: "Prepaid mobile and DTH recharge",
       commission: "1% - 3% commission",
-      gradient: "from-pink-500 to-pink-600",
+      color: "bg-gradient-to-r from-orange-500 to-orange-400", // ✅ Changed to orange
       category: "Recharge",
     },
   ];
@@ -149,7 +96,7 @@ export default function Services() {
   });
 
   return (
-    <div className="min-h-screen bg-background flex w-full">
+    <div className="min-h-screen bg-gray-50 flex w-full font-sans antialiased">
       <AppSidebar />
 
       <div className="flex-1 flex flex-col min-w-0">
@@ -157,46 +104,35 @@ export default function Services() {
 
         <main className="flex-1 overflow-auto">
           {/* Hero Section */}
-          {/* <div className="paybazaar-gradient p-8 text-white">
+          <div className="paybazaar-gradient p-6 sm:p-8 text-white shadow">
             <div className="max-w-7xl mx-auto">
-              <div className="flex items-center gap-4 mb-6">
-                <Button 
-                  variant="ghost" 
-                  size="icon"
-                  className="text-white hover:bg-white/10"
-                  onClick={() => window.history.back()}
-                >
-                  <ArrowLeft className="h-5 w-5" />
-                </Button>
-                <div>
-                  <h1 className="text-3xl font-bold">Our Services</h1>
-                  <p className="text-white/90 mt-2">
-                    Comprehensive financial services to grow your business
-                  </p>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+              <h1 className="text-2xl sm:text-3xl font-bold">Our Services</h1>
+              <p className="text-white/80 mt-2 text-base sm:text-lg">
+                Empower your business with PayBazaar’s financial solutions
+              </p>
+              <div className="mt-6 flex flex-col md:flex-row gap-4">
+                <div className="relative w-full md:w-1/3">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/70 h-5 w-5" />
                   <Input
                     placeholder="Search services..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/70"
+                    className="pl-10 bg-white/10 border border-white/20 text-white placeholder:text-white/70 rounded-xl"
                   />
                 </div>
-                
                 <div className="flex flex-wrap gap-2">
                   {categories.map((category) => (
                     <Button
                       key={category}
-                      variant={selectedCategory === category ? "secondary" : "ghost"}
+                      variant={
+                        selectedCategory === category ? "secondary" : "ghost"
+                      }
                       size="sm"
                       onClick={() => setSelectedCategory(category)}
-                      className={selectedCategory === category 
-                        ? "bg-white text-primary" 
-                        : "text-white hover:bg-white/10"
+                      className={
+                        selectedCategory === category
+                          ? "bg-white text-primary rounded-full"
+                          : "text-white hover:bg-white/10 rounded-full"
                       }
                     >
                       {category}
@@ -205,116 +141,57 @@ export default function Services() {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
 
           {/* Services Grid */}
-          <div className="p-8">
-            <div className="max-w-7xl mx-auto">
-              {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                <Card className="p-6">
-                  <div className="flex items-center justify-between">
+          <div className="p-4 sm:p-6 lg:p-8">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {filteredServices.map((service) => (
+                <Card
+                  key={service.id}
+                  className="group hover:shadow-xl border border-gray-100 transition-all duration-300 rounded-2xl h-full flex flex-col"
+                >
+                  <CardContent className="p-4 sm:p-6 flex flex-col flex-1 justify-between">
                     <div>
-                      <p className="text-sm text-muted-foreground">
-                        Total Services
-                      </p>
-                      <p className="text-2xl font-bold">{services.length}</p>
-                    </div>
-                    <Activity className="h-8 w-8 text-primary" />
-                  </div>
-                </Card>
-
-                <Card className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-muted-foreground">
-                        Active Services
-                      </p>
-                      <p className="text-2xl font-bold text-success">
-                        {services.filter((s) => s.status === "active").length}
-                      </p>
-                    </div>
-                    <Shield className="h-8 w-8 text-success" />
-                  </div>
-                </Card>
-
-                <Card className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-muted-foreground">
-                        Categories
-                      </p>
-                      <p className="text-2xl font-bold">
-                        {categories.length - 1}
-                      </p>
-                    </div>
-                    <Settings className="h-8 w-8 text-primary" />
-                  </div>
-                </Card>
-
-                <Card className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-muted-foreground">
-                        Total Revenue
-                      </p>
-                      <p className="text-2xl font-bold">₹2.45L</p>
-                    </div>
-                    <Banknote className="h-8 w-8 text-primary" />
-                  </div>
-                </Card>
-              </div> */}
-
-              {/* Services Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredServices.map((service) => (
-                  <Card
-                    key={service.id}
-                    className="group hover:shadow-lg transition-all duration-300 overflow-hidden"
-                  >
-                    <div className={`h-2 `} />
-
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div
-                          className={`p-3 rounded-lg bg-gradient-to-r ${service.gradient} text-white`}
-                        >
-                          <service.icon className="h-6 w-6" />
-                        </div>
+                      {/* Icon with solid background */}
+                      <div
+                        className={`p-3 sm:p-4 rounded-xl ${service.color} shadow-md w-fit mb-4`}
+                      >
+                        <service.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                       </div>
 
-                      <div className="space-y-2 mb-4">
-                        <h3 className="font-semibold text-lg">
-                          {service.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {service.subtitle}
-                        </p>
-                        <p className="text-sm">{service.description}</p>
+                      <h3 className="font-semibold text-lg sm:text-xl text-gray-900 line-clamp-1">
+                        {service.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-gray-500 line-clamp-1">
+                        {service.subtitle}
+                      </p>
+                      <p className="text-sm text-gray-700 leading-relaxed line-clamp-2 mt-2">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between items-center text-xs sm:text-sm border-t pt-3">
+                        <span className="text-gray-500">Commission:</span>
+                        <span className="font-semibold text-green-600">
+                          {service.commission}
+                        </span>
                       </div>
 
-                      <div className="space-y-3">
-                        <div className="flex justify-between items-center text-sm">
-                          <span className="text-muted-foreground">
-                            Commission:
-                          </span>
-                          <span className="font-medium text-success">
-                            {service.commission}
-                          </span>
-                        </div>
-
-                        <div className="flex gap-2">
-                          <Button className="flex-1" size="sm" onClick={() => window.location.href = service.route}>
-                            Use Service
-                          </Button>
-                          {/* <Button variant="outline" size="sm">
-                            Details
-                          </Button> */}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                      <Button
+                        className="w-full mt-3 sm:mt-4 rounded-full"
+                        size="sm"
+                        onClick={() =>
+                          window.location.replace(`${service.route}`)
+                        }
+                      >
+                        Use Service
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
 
               {filteredServices.length === 0 && (
                 <div className="text-center py-12">
@@ -322,7 +199,7 @@ export default function Services() {
                   <h3 className="text-xl font-semibold mb-2">
                     No services found
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-gray-500">
                     Try adjusting your search or filter criteria
                   </p>
                 </div>

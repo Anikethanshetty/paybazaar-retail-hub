@@ -14,7 +14,7 @@ import {
   Printer,
   Trash2,
 } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AddBeneficiaryDialog } from "@/components/dialogs/AddBeneficiaryDialog";
 
 export default function Dmt2() {
@@ -25,7 +25,6 @@ export default function Dmt2() {
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
   const [showAddBeneficiary, setShowAddBeneficiary] = useState(false);
-  const navigate = useNavigate();
 
   const handleMobileSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,14 +78,12 @@ export default function Dmt2() {
           {/* Header Section */}
           <div className="paybazaar-gradient rounded-xl p-6 text-white shadow-md">
             <div className="flex items-center space-x-3 mb-2">
-            <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => navigate(-1)}
-                className="text-white hover:bg-slate-700"
+              <Link
+                to="/"
+                className="text-white/90 hover:text-white transition-colors"
               >
                 <ArrowLeft className="h-5 w-5" />
-              </Button>
+              </Link>
               <h1 className="text-2xl font-bold">Remitter Information</h1>
             </div>
             <p className="text-white/80 text-sm max-w-2xl leading-relaxed">

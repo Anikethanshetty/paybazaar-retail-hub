@@ -114,7 +114,7 @@ export default function Login() {
                 </Link>
               </div>
 
-              <Button type="submit" className="w-full paybazaar-gradient">
+              <Button type="submit" className="w-full paybazaar-gradient" onClick={()=> window.location.href="/dashboard"}>
                 Sign In
               </Button>
             </form>
