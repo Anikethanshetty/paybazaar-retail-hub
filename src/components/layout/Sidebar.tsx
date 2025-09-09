@@ -159,10 +159,10 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
                 to={item.href}
                 className={({ isActive }) =>
                   cn(
-                    "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                    "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-300 relative",
                     "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                     isActive &&
-                      "bg-sidebar-primary text-sidebar-primary-foreground"
+                      "bg-sidebar-primary text-sidebar-primary-foreground shadow-lg ring-2 ring-sidebar-ring/20 before:content-[''] before:absolute before:left-0 before:top-0 before:w-1 before:h-full before:bg-white before:rounded-r-md"
                   )
                 }
               >
