@@ -15,7 +15,6 @@ import {
   Mail,
   MapPin,
   Clock,
-  Upload,
   ArrowLeft,
   Headphones,
 } from "lucide-react";

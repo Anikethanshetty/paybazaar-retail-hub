@@ -27,7 +27,7 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 const retailerNavItems = [
   {
@@ -118,20 +118,20 @@ const adminNavItems = [
     href: "/admin/reports",
     icon: Receipt,
   },
-]
+];
 
 export function AppSidebar() {
-  const [userRole] = useState<"retailer" | "admin">("retailer") // This will come from auth context
-  const { state } = useSidebar()
-  const location = useLocation()
-  const currentPath = location.pathname
+  const [userRole] = useState<"retailer" | "admin">("retailer"); // This will come from auth context
+  const { state } = useSidebar();
+  const location = useLocation();
+  const currentPath = location.pathname;
 
-  const navItems = userRole === "admin" ? adminNavItems : retailerNavItems
-  const isCollapsed = state === "collapsed"
+  const navItems = userRole === "admin" ? adminNavItems : retailerNavItems;
+  const isCollapsed = state === "collapsed";
 
   // Check if any route in the current group is active to keep group expanded
   const isExpanded = navItems.some((item) => currentPath === item.href)
-
+  
   const getNavClassName = ({ isActive }: { isActive: boolean }) =>
     `flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors ${
       isActive ? "border-b border-2 border-muted-foreground text-primary-foreground font-semibold" : "hover:bg-accent hover:text-accent-foreground"
@@ -144,8 +144,16 @@ export function AppSidebar() {
         <SidebarGroup>
           <div className="flex h-16 items-center px-4 border-b border-sidebar-border">
             <div className="flex items-center gap-3">
-              <img src="/paybazaar-logo.png" alt="PayBazaar" className="h-8 w-8 shrink-0" />
-              {!isCollapsed && <span className="text-lg font-semibold text-sidebar-foreground">PayBazaar</span>}
+              <img
+                src="/paybazaar-logo.png"
+                alt="PayBazaar"
+                className="h-8 w-8 shrink-0"
+              />
+              {!isCollapsed && (
+                <span className="text-lg font-semibold text-sidebar-foreground">
+                  PayBazaar
+                </span>
+              )}
             </div>
           </div>
         </SidebarGroup>
@@ -187,5 +195,82 @@ export function AppSidebar() {
         )}
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }
+
+
+// import { useState } from 'react';
+// import '@mantine/core/styles.css';
+// import {
+//   Calendar,
+//   BarChart3,
+//   Fingerprint,
+//   Gauge,
+//   Home,
+//   LogOut,
+//   Settings,
+//   User,
+//   UserRound
+// } from "lucide-react";
+
+// import { Center, Stack, Tooltip, UnstyledButton } from '@mantine/core';
+// import classes from '../../styles/NavbarMinimalColored.module.css';
+
+// interface NavbarLinkProps {
+//   icon: typeof Home;
+//   label: string;
+//   active?: boolean;
+//   onClick?: () => void;
+// }
+
+// function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
+//   return (
+//     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
+//       <UnstyledButton onClick={onClick} className={classes.link} data-active={active || undefined}>
+//         <Icon size={20}  />
+//       </UnstyledButton>
+//     </Tooltip>
+//   );
+// }
+
+// const mockdata = [
+//   { icon: Home, label: 'Home' },
+//   { icon: Gauge, label: 'Dashboard' },
+//   { icon: BarChart3, label: 'Analytics' },
+//   { icon: Calendar, label: 'Releases' },
+//   { icon: User, label: 'Account' },
+//   { icon: Fingerprint, label: 'Security' },
+//   { icon: Settings, label: 'Settings' },
+// ];
+
+// export function AppSidebar() {
+//   const [active, setActive] = useState(2);
+
+//   const links = mockdata.map((link, index) => (
+//     <NavbarLink
+//       {...link}
+//       key={link.label}
+//       active={index === active}
+//       onClick={() => setActive(index)}
+//     />
+//   ));
+
+//   return (
+//     <nav className={classes.navbar}>
+//       <Center>
+//         {/* <MantineLogo type="mark" inverted size={30} /> */}
+//       </Center>
+
+//       <div className={classes.navbarMain}>
+//         <Stack justify="center" gap={0}>
+//           {links}
+//         </Stack>
+//       </div>
+
+//       <Stack justify="center" gap={0}>
+//         <NavbarLink icon={UserRound} label="Change account" />
+//         <NavbarLink icon={LogOut} label="Logout" />
+//       </Stack>
+//     </nav>
+//   );
+// }
