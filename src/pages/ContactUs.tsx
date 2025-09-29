@@ -100,7 +100,7 @@ const ContactUs = () => {
                       <h3 className="font-semibold text-foreground">
                         Phone Number
                       </h3>
-                      <p className="text-muted-foreground">+91 8766234141</p>
+                      <p className="text-muted-foreground">+91 9319187762</p>
                     </div>
                   </div>
 
@@ -125,7 +125,7 @@ const ContactUs = () => {
                     <div>
                       <h3 className="font-semibold text-foreground">Email</h3>
                       <p className="text-muted-foreground">
-                        info@paybazaar.com
+                        info@paybazaar.in
                       </p>
                     </div>
                   </div>
@@ -140,9 +140,9 @@ const ContactUs = () => {
                         Location
                       </h3>
                       <p className="text-muted-foreground">
-                        10th Floor, Tower-B, Unitech Cyber Park, Sector - 39,
+                        Office No-304,Plot No.-2 T/F Netaji Subhash Marg , 
                         <br />
-                        Gurgaon (122001)
+                       Delhi
                       </p>
                     </div>
                   </div>

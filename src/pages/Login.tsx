@@ -1,7 +1,18 @@
+
 "use client"
 
 import { useState } from "react"
-import { CreditCard, Eye, EyeOff, Mail, Phone, MapPin, Building2 } from "lucide-react"
+import {
+  CreditCard,
+  Eye,
+  EyeOff,
+  Mail,
+  Phone,
+  MapPin,
+  Building2,
+  Clock,
+  Headphones,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -24,74 +35,82 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
+    <div className="min-h-screen w-full grid grid-cols-1 md:grid-cols-2 bg-white">
       {/* Left Section */}
-      <div className="hidden md:flex flex-col justify-center items-center bg-gradient-to-br from-primary/10 via-white to-primary/5 p-12 relative">
-        <img
-          src="/login-page.png"
-          alt="Payment Illustration"
-          className="w-80 h-80 object-contain mb-8"
-        />
-        <h2 className="text-3xl font-bold text-primary text-center">
-          Paybazaar: Lightning Speed Gleaming Service
-        </h2>
-        <p className="text-muted-foreground text-center mt-4 max-w-md leading-relaxed">
-          Effortlessly handle payments with our secure, all-in-one Payment Gateway solution.
-        </p>
-        <ul className="mt-6 text-sm text-muted-foreground space-y-2 text-left">
-          <li>✔ Do not provide your username and password anywhere else.</li>
-          <li>✔ Never share your password with anyone.</li>
-        </ul>
+      <div className="hidden md:flex flex-col justify-center items-center bg-[#0d3154] p-12 h-screen text-white">
+        <div className="flex flex-col items-center space-y-12">
+          {/* Illustration */}
+          <img
+            src="/login-page.png"
+            alt="PayBazaar Illustration"
+            className="w-72 h-72 object-contain"
+          />
 
-        {/* Company Info Card */}
-        <Card className="mt-10 bottom-6 w-full max-w-md shadow-lg border-0 bg-white/90 backdrop-blur-md">
-          <CardHeader>
-            <CardTitle className="text-lg font-bold text-paybazaar-navy flex items-center gap-2">
-              <Building2 className="w-5 h-5 text-primary" />
-              Company Info
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3 text-sm text-slate-700">
-            <p className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-primary" /> paybazaartechnologies@gmail.com
+          {/* Heading & Description */}
+          <div className="text-center max-w-lg space-y-4">
+            <h2 className="text-3xl font-bold text-white">
+              PayBazaar: Secure & Reliable Payment Service
+            </h2>
+            <p className="text-slate-200 text-sm leading-relaxed">
+              At PAYBAZAAR, we are more than just a financial institution; we are a catalyst for inclusive growth and empowerment. We harness technology to democratize financial services, making them reachable to every corner of the nation.
             </p>
-            <p className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-primary" /> +91 9319187762
-            </p>
-            <p className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 text-primary mt-1" />
-              PAYBAZAAR TECHNOLOGIES PRIVATE LIMITED,
-              5054 Office No-304, Plot No 2, T/F Netaji Subhash Marg, Darya Ganj, New Delhi,
-              Central Delhi - 110002, Delhi
-            </p>
-          </CardContent>
-        </Card>
+            <ul className="grid grid-cols-2 gap-4 text-sm text-slate-200 mt-4">
+              <li className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-white" /> Quick settlement in 1 hour
+              </li>
+              <li className="flex items-center gap-2">
+                <Headphones className="w-4 h-4 text-white" /> 24/7 Available
+              </li>
+            </ul>
+          </div>
+
+          {/* Company Info Card */}
+          <Card className="w-full max-w-md shadow-lg border-0 rounded-xl bg-white/90 backdrop-blur-md">
+            <CardHeader>
+              <CardTitle className="text-lg font-bold text-[#0d3154] flex items-center gap-2">
+                <Building2 className="w-5 h-5 text-[#0d3154]" /> Company Info
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm text-slate-700">
+              <p className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#0d3154]" /> info@paybazaar.in
+              </p>
+              <p className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-[#0d3154]" /> +91 9319187762
+              </p>
+              <p className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-[#0d3154] mt-1" />
+                Paybazaar Technologies Pvt Ltd, Office No-304, Plot No.-2 T/F Netaji Subhash Marg, Delhi
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
 
       {/* Right Login Section */}
-      <div className="flex items-center justify-center p-8 lg:p-12">
-        <div className="w-full max-w-md">
-          {/* Mobile Logo */}
-          <div className="text-center mb-8 lg:hidden">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl mb-4 shadow-lg">
+      <div className="flex justify-center items-center px-6 py-8 lg:px-16 lg:py-12 min-h-screen">
+        <div className="w-full max-w-md space-y-8">
+          {/* Mobile Logo + Heading */}
+          <div className="text-center lg:hidden space-y-2">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-[#0d3154] rounded-xl shadow-lg">
               <CreditCard className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-slate-900">PayBazaar</h1>
-            <p className="text-muted-foreground mt-1">Retailer Portal</p>
+            <h1 className="text-3xl font-bold text-slate-900">Welcome to PayBazaar!</h1>
+            <p className="text-slate-500 text-sm">Sign in to manage your payments and transactions</p>
           </div>
 
-          {/* Welcome Message */}
-          <div className="text-center mb-8 hidden lg:block">
-            <h2 className="text-3xl font-bold text-paybazaar-navy mb-2">Welcome Back!</h2>
-            <p className="text-muted-foreground">Please sign in to your account</p>
+          {/* Desktop Heading */}
+          <div className="text-center hidden lg:block space-y-2">
+            <h2 className="text-3xl font-bold text-[#0d3154]">Welcome to PayBazaar!</h2>
+            <p className="text-slate-500 text-sm">Sign in to manage your payments and transactions</p>
           </div>
 
-          {/* Login Form */}
-          <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm">
+          {/* Login Form Card */}
+          <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm w-full">
             <CardHeader className="space-y-1 text-center pb-8">
-              <CardTitle className="text-2xl font-bold text-paybazaar-navy">Sign In</CardTitle>
-              <CardDescription className="text-muted-foreground">
-                Enter your credentials to access your account
+              <CardTitle className="text-2xl font-bold text-[#0d3154]">Sign In</CardTitle>
+              <CardDescription className="text-slate-500">
+                Enter your registered email and password to continue
               </CardDescription>
             </CardHeader>
 
@@ -105,12 +124,12 @@ export default function Login() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Enter your registered email"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="h-12 bg-slate-50 border-slate-200 focus:border-primary focus:ring-primary/20 transition-all duration-300"
+                    className="h-12 bg-slate-50 border-slate-200 focus:border-[#0d3154] focus:ring-[#0d3154]/40 transition-all duration-300"
                     required
                   />
                 </div>
@@ -129,14 +148,14 @@ export default function Login() {
                       onChange={(e) =>
                         setFormData({ ...formData, password: e.target.value })
                       }
-                      className="h-12 bg-slate-50 border-slate-200 focus:border-primary focus:ring-primary/20 transition-all duration-300 pr-12"
+                      className="h-12 bg-slate-50 border-slate-200 focus:border-[#0d3154] focus:ring-[#0d3154]/40 transition-all duration-300 pr-12"
                       required
                     />
                     <Button
                       type="button"
                       variant="ghost"
                       size="icon"
-                      className="absolute right-0 top-0 h-12 w-12 hover:bg-transparent text-muted-foreground hover:text-primary transition-colors"
+                      className="absolute right-0 top-0 h-12 w-12 hover:bg-transparent text-slate-500 hover:text-[#0d3154] transition-colors"
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -145,7 +164,7 @@ export default function Login() {
                 </div>
 
                 {/* Remember & Forgot */}
-                <div className="flex items-center justify-between pt-2">
+                <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <Checkbox
                       id="remember"
@@ -153,7 +172,7 @@ export default function Login() {
                       onCheckedChange={(checked) =>
                         setFormData({ ...formData, rememberMe: !!checked })
                       }
-                      className="data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                      className="data-[state=checked]:bg-[#0d3154] data-[state=checked]:border-[#0d3154]"
                     />
                     <Label htmlFor="remember" className="text-sm text-slate-600 font-medium">
                       Remember me
@@ -161,7 +180,7 @@ export default function Login() {
                   </div>
                   <Link
                     to="/forgot-password"
-                    className="text-sm text-primary hover:text-primary/80 font-semibold transition-colors"
+                    className="text-sm text-[#0d3154] hover:text-[#0a243f] font-semibold transition-colors"
                   >
                     Forgot password?
                   </Link>
@@ -170,9 +189,9 @@ export default function Login() {
                 {/* Submit */}
                 <Button
                   type="submit"
-                  className="w-full h-12 bg-gradient-to-r from-slate-900 to-slate-700 hover:from-slate-800 hover:to-slate-600 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                  className="w-full h-12 bg-gradient-to-r from-[#0d3154] to-blue-900 hover:from-[#0b2946] hover:to-blue-950 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                 >
-                  Sign In to Dashboard
+                  Sign In
                 </Button>
               </form>
             </CardContent>
@@ -182,3 +201,4 @@ export default function Login() {
     </div>
   )
 }
+
