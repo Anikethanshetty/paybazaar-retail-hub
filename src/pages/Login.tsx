@@ -34,19 +34,19 @@ export default function Login() {
   }
 
   return (
-    <div className="h-screen w-full grid grid-cols-1 md:grid-cols-2 bg-white overflow-hidden">
+    <div className="h-screen w-full grid grid-cols-1 md:grid-cols-2">
       {/* Left Section */}
-      <div className="hidden md:flex flex-col justify-center items-center bg-[#0d3154] px-12 text-white">
-        <div className="flex flex-col items-center space-y-12 max-w-lg">
+      <div className="hidden md:flex flex-col justify-center items-center bg-[#0d3154] px-12 text-white ">
+        <div className="flex flex-col items-center  max-w-lg ">
           {/* Illustration */}
           <img
             src="/login-page.png"
             alt="PayBazaar Illustration"
-            className="w-64 h-64 object-contain"
+            className="w-64 h-54 object-contain"
           />
 
           {/* Heading & Description */}
-          <div className="text-center space-y-4">
+          <div className="text-center  mt-14">
             <h2 className="text-3xl font-bold">PayBazaar: Secure & Reliable Payment Service</h2>
             <p className="text-slate-200 text-sm leading-relaxed">
               At PAYBAZAAR, we are more than just a financial institution; we are a catalyst for
@@ -55,7 +55,7 @@ export default function Login() {
             </p>
 
             {/* Features */}
-            <ul className="flex justify-center gap-8 text-sm text-slate-200 mt-4">
+            <ul className="flex justify-center gap-8 text-sm text-slate-200 mt-6">
               <li className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-white" /> Quick settlement in 1 hour
               </li>
@@ -66,7 +66,7 @@ export default function Login() {
           </div>
 
           {/* Company Info Card */}
-          <Card className="w-full shadow-lg border-0 rounded-xl bg-white/90 backdrop-blur-md">
+          <Card className="w-full  shadow-lg border-0 rounded-xl bg-white/90 backdrop-blur-md mt-16">
             <CardHeader>
               <CardTitle className="text-lg font-bold text-[#0d3154] flex items-center gap-2">
                 <Building2 className="w-5 h-5 text-[#0d3154]" /> Company Info

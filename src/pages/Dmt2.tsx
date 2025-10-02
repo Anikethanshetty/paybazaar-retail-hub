@@ -82,7 +82,7 @@ export default function Dmt2() {
             <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => navigate(-1)}
+                onClick={() => navigate("/services")}
                 className="text-white hover:bg-slate-700"
               >
                 <ArrowLeft className="h-5 w-5" />

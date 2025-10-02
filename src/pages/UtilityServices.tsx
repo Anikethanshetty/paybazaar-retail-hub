@@ -346,7 +346,7 @@ export default function UtilityPayments() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => navigate("/dashboard")}
+                onClick={() => navigate("/services")}
                 className="text-primary-foreground hover:bg-white/10 rounded-lg"
               >
                 <ArrowLeft className="h-5 w-5 text-primary" />

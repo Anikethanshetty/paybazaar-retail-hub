@@ -100,7 +100,7 @@ export default function ChangePassword() {
                 variant="ghost"
                 size="icon"
                 onClick={() => navigate(-1)}
-                className="text-white hover:bg-slate-700"
+                className="text-white hover:bg-slate-700 hover:text-white"
               >
                 <ArrowLeft className="h-5 w-5" />
               </Button>
@@ -112,7 +112,7 @@ export default function ChangePassword() {
             </p>
           </div>
 
-          {/* Forms Container */}
+          {/* Forms Container */}``
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Change Password Card */}
             <Card className="shadow-lg border-0 bg-card">
