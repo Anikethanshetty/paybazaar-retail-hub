@@ -133,7 +133,7 @@ export function AppSidebar() {
   const isExpanded = navItems.some((item) => currentPath === item.href)
   
   const getNavClassName = ({ isActive }: { isActive: boolean }) =>
-    `flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors ${
+    `flex items-center gap-3 rounded-md px-1.5 py-2 text-sm transition-colors ${
       isActive ? "border-b border-2 border-muted-foreground text-primary-foreground font-semibold" : "hover:bg-accent hover:text-accent-foreground"
     }`
 

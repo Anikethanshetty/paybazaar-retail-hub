@@ -132,7 +132,7 @@ export default function Services() {
                       className={
                         selectedCategory === category
                           ? "bg-white text-primary rounded-full"
-                          : "text-white hover:bg-white/10 rounded-full"
+                          : "text-white hover:bg-white/10  rounded-full"
                       }
                     >
                       {category}
