@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { NavLink, useLocation } from "react-router-dom"
+import { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
   CreditCard,
@@ -17,7 +17,7 @@ import {
   Activity,
   PersonStanding,
   Key,
-} from "lucide-react"
+} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -44,6 +44,11 @@ const retailerNavItems = [
     title: "Services",
     href: "/services",
     icon: CreditCard,
+  },  
+  {
+    title:"Funds Request",
+    href:"/funds-request",
+    icon:CreditCard,
   },
   {
     title: "Bill Payments",
@@ -90,7 +95,7 @@ const retailerNavItems = [
     href: "/change-password",
     icon: Key,
   },
-]
+];
 
 const adminNavItems = [
   {
@@ -121,7 +126,7 @@ const adminNavItems = [
 ];
 
 export function AppSidebar() {
-  const [userRole] = useState<"retailer" | "admin">("retailer"); // This will come from auth context
+  const [userRole] = useState<"retailer" | "admin">("retailer");
   const { state } = useSidebar();
   const location = useLocation();
   const currentPath = location.pathname;
@@ -129,13 +134,14 @@ export function AppSidebar() {
   const navItems = userRole === "admin" ? adminNavItems : retailerNavItems;
   const isCollapsed = state === "collapsed";
 
-  // Check if any route in the current group is active to keep group expanded
-  const isExpanded = navItems.some((item) => currentPath === item.href)
-  
+  const isExpanded = navItems.some((item) => currentPath === item.href);
+
   const getNavClassName = ({ isActive }: { isActive: boolean }) =>
     `flex items-center gap-3 rounded-md px-1.5 py-2 text-sm transition-colors ${
-      isActive ? "border-b border-2 border-muted-foreground text-primary-foreground font-semibold" : "hover:bg-accent hover:text-accent-foreground"
-    }`
+      isActive
+        ? "border-b border-2 border-muted-foreground text-primary-foreground font-semibold"
+        : "hover:bg-accent hover:text-accent-foreground"
+    }`;
 
   return (
     <Sidebar className="border-r border-sidebar-border" collapsible="icon">
@@ -160,7 +166,9 @@ export function AppSidebar() {
 
         {/* Navigation Section */}
         <SidebarGroup>
-          <SidebarGroupLabel>{userRole === "admin" ? "Admin Panel" : "Services"}</SidebarGroupLabel>
+          <SidebarGroupLabel>
+            {userRole === "admin" ? "Admin Panel" : "Services"}
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {navItems.map((item) => (
@@ -181,10 +189,14 @@ export function AppSidebar() {
             <div className="border-t border-sidebar-border p-4">
               <div className="flex items-center gap-3">
                 <div className="h-8 w-8 rounded-full bg-sidebar-primary flex items-center justify-center">
-                  <span className="text-sm font-medium text-sidebar-primary-foreground">JD</span>
+                  <span className="text-sm font-medium text-sidebar-primary-foreground">
+                    JD
+                  </span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-sidebar-foreground truncate">John Doe</p>
+                  <p className="text-sm font-medium text-sidebar-foreground truncate">
+                    John Doe
+                  </p>
                   <p className="text-xs text-sidebar-foreground/70 truncate">
                     {userRole === "admin" ? "Administrator" : "Retailer"}
                   </p>
@@ -197,80 +209,3 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
-
-
-// import { useState } from 'react';
-// import '@mantine/core/styles.css';
-// import {
-//   Calendar,
-//   BarChart3,
-//   Fingerprint,
-//   Gauge,
-//   Home,
-//   LogOut,
-//   Settings,
-//   User,
-//   UserRound
-// } from "lucide-react";
-
-// import { Center, Stack, Tooltip, UnstyledButton } from '@mantine/core';
-// import classes from '../../styles/NavbarMinimalColored.module.css';
-
-// interface NavbarLinkProps {
-//   icon: typeof Home;
-//   label: string;
-//   active?: boolean;
-//   onClick?: () => void;
-// }
-
-// function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
-//   return (
-//     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
-//       <UnstyledButton onClick={onClick} className={classes.link} data-active={active || undefined}>
-//         <Icon size={20}  />
-//       </UnstyledButton>
-//     </Tooltip>
-//   );
-// }
-
-// const mockdata = [
-//   { icon: Home, label: 'Home' },
-//   { icon: Gauge, label: 'Dashboard' },
-//   { icon: BarChart3, label: 'Analytics' },
-//   { icon: Calendar, label: 'Releases' },
-//   { icon: User, label: 'Account' },
-//   { icon: Fingerprint, label: 'Security' },
-//   { icon: Settings, label: 'Settings' },
-// ];
-
-// export function AppSidebar() {
-//   const [active, setActive] = useState(2);
-
-//   const links = mockdata.map((link, index) => (
-//     <NavbarLink
-//       {...link}
-//       key={link.label}
-//       active={index === active}
-//       onClick={() => setActive(index)}
-//     />
-//   ));
-
-//   return (
-//     <nav className={classes.navbar}>
-//       <Center>
-//         {/* <MantineLogo type="mark" inverted size={30} /> */}
-//       </Center>
-
-//       <div className={classes.navbarMain}>
-//         <Stack justify="center" gap={0}>
-//           {links}
-//         </Stack>
-//       </div>
-
-//       <Stack justify="center" gap={0}>
-//         <NavbarLink icon={UserRound} label="Change account" />
-//         <NavbarLink icon={LogOut} label="Logout" />
-//       </Stack>
-//     </nav>
-//   );
-// }
